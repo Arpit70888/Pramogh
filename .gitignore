@@ -1,0 +1,6 @@
+/env/
+/pramogh/settings_local.py
+/*.iml
+*.xml
+/.env
+.env
