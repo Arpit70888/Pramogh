@@ -171,3 +171,9 @@ CORS_ALLOW_HEADERS = ["*"]
 
 WATI_API_KEY = env('WATI_API_KEY')
 FRESHDESK_API_KEY = env('FRESHDESK_API_KEY')
+
+
+# cron job hit after every 15 min.
+CRONJOBS = [
+    ('*/10 * * * *', 'automate.cron.SyncDataFromWatiToFreshDeskCronJob')
+]
