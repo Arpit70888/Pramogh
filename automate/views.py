@@ -25,20 +25,19 @@ class SyncDataFromWatiToFreshDesk(APIView):
         for contact in contact_list:
             # only get the today's record from wati....................
             created_at_date = datetime.datetime.strptime(contact['created'], "%b-%d-%Y").date()
-            print(created_at_date,today_date)
+            print(created_at_date, today_date)
             if created_at_date == today_date:
                 # split the name
                 fullName = str(contact['fullName'])
                 split_fullName = fullName.split(' ')
                 if len(split_fullName) > 1:
-                    first_name = split_fullName[0]
-                    last_name = split_fullName[1:]
+                    first_name, last_name = fullName.split(' ', 1)
                 else:
                     first_name = split_fullName[0]
                     last_name = None
                 phone = contact['phone']
 
-                email = f'{fullName}@gmail.com'
+                email = f'{first_name.lower()}@gmail.com'
                 print(fullName, first_name, last_name, email, phone)
                 # send or check from djagno db...................................
                 filter_contact = Contact.objects.filter(first_name=first_name, last_name=last_name, phone=phone,
@@ -73,5 +72,6 @@ class SyncDataFromWatiToFreshDesk(APIView):
                         contact_create.is_send = True
                         contact_create.save()
 
-                break
+                # break
+
         return Response("Done")

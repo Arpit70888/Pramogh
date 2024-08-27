@@ -19,8 +19,7 @@ def SyncDataFromWatiToFreshDeskCronJob(self, request):
             fullName = str(contact['fullName'])
             split_fullName = fullName.split(' ')
             if len(split_fullName) > 1:
-                first_name = split_fullName[0]
-                last_name = split_fullName[1:]
+                first_name, last_name = fullName.split(' ', 1)
             else:
                 first_name = split_fullName[0]
                 last_name = None
