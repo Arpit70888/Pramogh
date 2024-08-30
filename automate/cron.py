@@ -25,7 +25,7 @@ def SyncDataFromWatiToFreshDeskCronJob(self, request):
                 last_name = None
             phone = contact['phone']
 
-            email = f'{fullName}@gmail.com'
+            email = f'{phone}@gmail.com'
             print(fullName, first_name, last_name, email, phone)
             # send or check from djagno db...................................
             filter_contact = Contact.objects.filter(first_name=first_name, last_name=last_name, phone=phone,
