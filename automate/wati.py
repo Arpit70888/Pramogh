@@ -30,12 +30,12 @@ def get_contacts():
 # tenant_info = get_chat(919557983049)
 # print(tenant_info)
 
-contacts = get_contacts()
-contact_list = contacts['contact_list']
-for contact in contact_list:
-    phone = contact['phone']
-    fullName = contact['fullName']
-    created = contact['created']
-    print(f'{fullName} {phone} {created} \n contact:{contact}')
+# contacts = get_contacts()
+# contact_list = contacts['contact_list']
+# for contact in contact_list:
+#     phone = contact['phone']
+#     fullName = contact['fullName']
+#     created = contact['created']
+#     print(f'{fullName} {phone} {created} \n contact:{contact}')
 
 # contacts = Contact.objects.all()
