@@ -5,7 +5,7 @@ import requests
 
 api_key = 'W9Gk-jRLKJ9_ykrWMEVUng'
 # api_key = FRESHDESK_API_KEY
-# url = 'https://pramogh.myfreshworks.com/crm/sales/api/contacts/402093165732'
+# url = 'https://pramogh.myfreshworks.com/crm/sales/api/contacts/402033369233'
 url = 'https://pramogh.myfreshworks.com/crm/sales/api/contacts'
 
 # Define headers with the API key for authentication
@@ -21,10 +21,13 @@ def freshDesk(first_name, last_name, email, phone):
             'first_name': first_name,
             'last_name': last_name,
             'email': email,
-            'mobile_number': phone,
-            'first_source': 'WhatsApp Chat',
-            'last_source': 'WhatsApp Chat',
+            'mobile_number': f'+{phone}',
+            'first_source': 'WhatsApp',
+            'last_source': 'WhatsApp',
             'tags': 'WhatsApp Chat',
+            'custom_field': {
+                'cf_sub_source': "Wati"
+            }
         }
     }
     contact_data_json = json.dumps(contact_data)
@@ -36,8 +39,8 @@ def freshDesk(first_name, last_name, email, phone):
 
 
 #
-# freshDesk_res = freshDesk('Arpit', 'gupta', 'arpit1@gmail.com', '7088851096')
-# print(freshDesk_res)
+freshDesk_res = freshDesk('ArpitTest', 'gupta', 'arpittest123@gmail.com', '7088851096')
+print(freshDesk_res)
 
 
 def getContact():
@@ -52,6 +55,5 @@ def getContact():
     else:
         print(f"Failed to retrieve contacts. Status code: {response.status_code}")
         return response.text
-
 
 # print(getContact())
