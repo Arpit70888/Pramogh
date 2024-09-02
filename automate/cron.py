@@ -6,7 +6,7 @@ from automate.wati import get_contacts
 from rest_framework.response import Response
 
 
-def SyncDataFromWatiToFreshDeskCronJob(self, request):
+def SyncDataFromWatiToFreshDeskCronJob():
     contacts = get_contacts()
     contact_list = contacts['contact_list']
     today_date = datetime.datetime.today().date()
