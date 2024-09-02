@@ -177,3 +177,8 @@ FRESHDESK_API_KEY = env('FRESHDESK_API_KEY')
 CRONJOBS = [
     ('*/10 * * * *', 'automate.cron.SyncDataFromWatiToFreshDeskCronJob')
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:4200",
+    "http://18.216.110.115",
+]
