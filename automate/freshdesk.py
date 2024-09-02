@@ -24,9 +24,9 @@ def freshDesk(first_name, last_name, email, phone):
             'mobile_number': f'+{phone}',
             'first_source': 'WhatsApp',
             'last_source': 'WhatsApp',
-            'tags': 'WhatsApp Chat',
             'custom_field': {
-                'cf_sub_source': "Wati"
+                'lead_source_id': "WhatsApp",
+                'cf_sub_source': "WhatsApp"
             }
         }
     }
@@ -39,7 +39,7 @@ def freshDesk(first_name, last_name, email, phone):
 
 
 #
-freshDesk_res = freshDesk('ArpitTest', 'gupta', 'arpittest123@gmail.com', '7088851096')
+freshDesk_res = freshDesk('Arpit088', 'gupta', 'arpit088@wati.com', '7088851008')
 print(freshDesk_res)
 
 
