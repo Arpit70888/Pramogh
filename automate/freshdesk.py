@@ -39,7 +39,7 @@ def freshDesk(first_name, last_name, email, phone):
 
 
 #
-freshDesk_res = freshDesk('Arpit088', 'gupta', 'arpit088@wati.com', '7088851008')
+freshDesk_res = freshDesk('test', 'test', 'test111@wati.com', '+918209314159')
 print(freshDesk_res)
 
 

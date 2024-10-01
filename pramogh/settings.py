@@ -175,7 +175,8 @@ FRESHDESK_API_KEY = env('FRESHDESK_API_KEY')
 
 # cron job hit after every 15 min.
 CRONJOBS = [
-    ('*/10 * * * *', 'automate.cron.SyncDataFromWatiToFreshDeskCronJob')
+    ('*/10 * * * *', 'automate.cron.SyncDataFromWatiToFreshDeskCronJob'),
+    ('*/10 * * * *', 'automate.cron.SyncDataFromShopfloToFreshDeskCronJob')
 ]
 
 CSRF_TRUSTED_ORIGINS = [

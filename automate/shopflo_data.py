@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 import requests
 
 # Replace these with your actual values
@@ -46,8 +46,20 @@ def get_orders():
 if __name__ == '__main__':
     orders = get_orders()
     if orders:
+        today_date = datetime.datetime.today().date()
         for order in orders:
-            created_at = order['created_at']
-            shipping_name = order.get('shipping_address', {}).get('name', 'No shipping name')
-            print(f"Created at: {created_at}, Shipping name: {shipping_name}")
+            created_at_date = datetime.datetime.strptime(order['created_at'], "%Y-%m-%dT%H:%M:%S%z").date()
+            if created_at_date == today_date:
+                created_at = order['created_at']
+                contact_email = order['contact_email']
+                phone = order['phone']
+                shipping_name = order.get('shipping_address', {}).get('name', 'No shipping name')
+                fullName = shipping_name
+                split_fullName = fullName.split(' ')
+                if len(split_fullName) > 1:
+                    first_name, last_name = fullName.split(' ', 1)
+                else:
+                    first_name = split_fullName[0]
+                    last_name = None
+                print(f"Created at: {created_at}, First_name: {first_name}, Last_name: {last_name}, Email: {contact_email}, Phone: {phone}")
         print(len(orders))
