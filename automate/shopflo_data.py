@@ -63,3 +63,5 @@ if __name__ == '__main__':
                     last_name = None
                 print(f"Created at: {created_at}, First_name: {first_name}, Last_name: {last_name}, Email: {contact_email}, Phone: {phone}")
         print(len(orders))
+
+
